@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Algo>
-    <description courant="FIN_TANT_QUE" texte=""/>
+    <description texte="" courant="FIN_TANT_QUE"/>
     <extension extnom="inactif"/>
     <fonction fctetat="inactif" fctcode=""/>
-    <F2 F2etat="inactif" F2defaut="" F2para="" F2lignes=""/>
+    <F2 F2lignes="" F2para="" F2etat="inactif" F2defaut=""/>
     <repere repetat="inactif" repcode="-10#10#-10#10#2#2"/>
-    <param totalBoucles="5000000" totalAffichages="1000" epaisseurPoint="2" maxBoucle="500000" epaisseurLigne="2" arrondiAuto="vrai" nbDecimales="8"/>
+    <param totalBoucles="5000000" epaisseurLigne="2" epaisseurPoint="2" nbDecimales="8" totalAffichages="1000" arrondiAuto="vrai" maxBoucle="500000"/>
     <item code="200#declarationfonctions" algoitem="FONCTIONS_UTILISEES">
         <item code="201#afficherMenu# " algoitem="FONCTION afficherMenu( )">
             <item code="202#declarationsvariablesfonction" algoitem="VARIABLES_FONCTION">
@@ -27,12 +27,23 @@
             <item code="205#choix" algoitem="RENVOYER choix"/>
             <item code="204#finfonction" algoitem="FIN_FONCTION"/>
         </item>
-        <item code="201#faireChoix#option" algoitem="FONCTION faireChoix(option)">
+        <item code="201#getLength#phrase" algoitem="FONCTION getLength(phrase)">
+            <item code="202#declarationsvariablesfonction" algoitem="VARIABLES_FONCTION">
+                <item code="1#NOMBRE#count" algoitem="count EST_DU_TYPE NOMBRE"/>
+            </item>
+            <item code="203#debutfonction" algoitem="DEBUT_FONCTION"/>
+            <item code="5#count#phrase.length#pasliste" algoitem="count PREND_LA_VALEUR phrase.length"/>
+            <item code="4#Le texte a #0" algoitem="AFFICHER &quot;Le texte a &quot;"/>
+            <item code="3#count#0#pasliste" algoitem="AFFICHER count"/>
+            <item code="4# caractère(s).#0" algoitem="AFFICHER &quot; caractère(s).&quot;"/>
+            <item code="204#finfonction" algoitem="FIN_FONCTION"/>
+        </item>
+        <item code="201#faireChoix#option, phrase" algoitem="FONCTION faireChoix(option, phrase)">
             <item code="202#declarationsvariablesfonction" algoitem="VARIABLES_FONCTION"/>
             <item code="203#debutfonction" algoitem="DEBUT_FONCTION"/>
             <item code="6#option == 1" algoitem="SI (option == 1) ALORS">
                 <item code="7#debutsi" algoitem="DEBUT_SI"/>
-                <item code="4#J'ai choisi 1#0" algoitem="AFFICHER &quot;J'ai choisi 1&quot;"/>
+                <item code="206#getLength(phrase)" algoitem="APPELER_FONCTION getLength(phrase)"/>
                 <item code="8#finsi" algoitem="FIN_SI"/>
             </item>
             <item code="204#finfonction" algoitem="FIN_FONCTION"/>
@@ -48,7 +59,7 @@
             <item code="16#debuttantque" algoitem="DEBUT_TANT_QUE"/>
             <item code="5#option#afficherMenu()#pasliste" algoitem="option PREND_LA_VALEUR afficherMenu()"/>
             <item code="2#phrase#pasliste" algoitem="LIRE phrase"/>
-            <item code="206#faireChoix(option)" algoitem="APPELER_FONCTION faireChoix(option)"/>
+            <item code="206#faireChoix(option, phrase)" algoitem="APPELER_FONCTION faireChoix(option, phrase)"/>
             <item code="4# #1" algoitem="AFFICHER &quot; &quot;"/>
             <item code="4# #1" algoitem="AFFICHER &quot; &quot;"/>
             <item code="17#fintantque" algoitem="FIN_TANT_QUE"/>
